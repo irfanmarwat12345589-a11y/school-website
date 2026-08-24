@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home · Pakistan Iqra Model School</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a3a6b;
+  --primary-dark: #0f1f3a;
+  --accent: #ff6b35;
+  --accent-light: #ff8a52;
+  --success: #2ecc71;
+  --warning: #f39c12;
+  --danger: #e74c3c;
+  --cream: #f8f9fa;
+  --paper: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --border: #ecf0f1;
+  --shadow: 0 10px 40px rgba(0,0,0,0.1);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --radius: 12px;
+  --maxw: 1200px;
+  --trans: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+body.dark-mode {
+  --cream: #1a1a1a;
+  --paper: #2d2d2d;
+  --text: #e0e0e0;
+  --text-light: #a0a0a0;
+  --border: #404040;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.6; transition: var(--trans); }
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.2; margin-bottom: 0.5em; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--primary); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--primary); }
+h3 { font-size: 1.3rem; color: var(--primary); }
+h4 { font-size: 1.1rem; }
+p { margin-bottom: 1em; color: var(--text); }
+a { color: var(--accent); text-decoration: none; transition: var(--trans); }
+a:hover { color: var(--accent-light); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.container { padding: 60px 0; }
+
+@keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+@keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.topbar { background: var(--primary-dark); color: #fff; padding: 8px 0; font-size: 0.85rem; }
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+.topbar a { color: #fff; opacity: 0.9; }
+.topbar a:hover { opacity: 1; color: var(--accent); }
+
+.site-header { background: linear-gradient(135deg, var(--primary) 0%, #2d5a8c 100%); padding: 15px 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); animation: slideInDown 0.6s ease; }
+.brand-row { display: flex; align-items: center; justify-content: space-between; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 700; font-size: 1.4rem; }
+.brand-logo { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), #ff4500); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.8rem; font-weight: 900; animation: float 3s ease-in-out infinite; }
+.brand-text .school-name { display: block; font-size: 1rem; }
+.brand-text .tagline { font-size: 0.7rem; opacity: 0.9; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.dark-toggle { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: #fff; width: 40px; height: 40px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; transition: var(--trans); display: flex; align-items: center; justify-content: center; }
+.dark-toggle:hover { background: rgba(255,255,255,0.3); }
+.btn-signin, .btn-signup { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: var(--trans); font-size: 0.9rem; }
+.btn-signin { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-signin:hover { background: #fff; color: var(--primary); }
+.btn-signup { background: var(--accent); color: #fff; }
+.btn-signup:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,107,53,0.3); }
+
+.nav-tabs { display: flex; list-style: none; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; gap: 5px; overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+.nav-tab { position: relative; }
+.nav-tab > a, .nav-tab > button { display: block; color: rgba(255,255,255,0.8); padding: 12px 16px; background: transparent; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: var(--trans); position: relative; }
+.nav-tab > a:hover, .nav-tab > button:hover { color: #fff; }
+.nav-tab.active > a, .nav-tab.active > button { color: var(--accent); border-bottom: 3px solid var(--accent); }
+.dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); min-width: 200px; box-shadow: var(--shadow); z-index: 50; padding: 8px; list-style: none; }
+.nav-tab:hover .dropdown, .nav-tab.open .dropdown { display: block; animation: slideInDown 0.3s ease; }
+.dropdown li a { display: block; padding: 10px 14px; color: var(--text); border-radius: 6px; transition: var(--trans); }
+.dropdown li a:hover { background: var(--cream); color: var(--accent); }
+
+.page-hero { background: linear-gradient(135deg, var(--primary) 0%, #2d5a8c 50%, var(--accent) 100%); color: #fff; padding: 80px 0; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url(2.irfan.png); opacity: 0.1; }
+.page-hero .wrap { position: relative; z-index: 2; animation: slideInUp 0.8s ease; }
+.page-hero h1 { color: #fff; font-size: 3rem; margin-bottom: 15px; }
+.page-hero .subtitle { font-size: 1.1rem; opacity: 0.95; max-width: 600px; }
+
+.card { background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); transition: var(--trans); animation: fadeIn 0.6s ease; }
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+.card .card-icon { width: 50px; height: 50px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.6rem; margin-bottom: 15px; }
+.card h3 { margin-bottom: 10px; }
+.card p { margin-bottom: 0; color: var(--text-light); }
+
+.grid { display: grid; gap: 25px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+@media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+.stat-box { text-align: center; padding: 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; border-radius: var(--radius); animation: float 3s ease-in-out infinite; }
+.stat-box .number { font-size: 2.5rem; font-weight: 900; margin-bottom: 5px; }
+.stat-box .label { font-size: 0.95rem; opacity: 0.9; }
+
+.principal-card { background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); animation: slideInUp 0.8s ease; }
+.principal-image { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 4rem; position: relative; overflow: hidden; }
+.principal-image::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%); }
+.principal-info { padding: 20px; }
+.principal-info h3 { margin-bottom: 5px; }
+.principal-info p { color: var(--text-light); margin-bottom: 0; }
+
+.form-group { margin-bottom: 20px; animation: slideInUp 0.6s ease; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; background: var(--paper); color: var(--text); transition: var(--trans); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,107,53,0.1); }
+
+.btn { padding: 12px 30px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--trans); font-size: 1rem; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(26, 58, 107, 0.3); }
+.btn-secondary { background: var(--border); color: var(--text); }
+.btn-secondary:hover { background: var(--accent); color: #fff; }
+
+table { width: 100%; border-collapse: collapse; background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--primary); color: #fff; font-weight: 600; }
+tr:hover td { background: var(--cream); }
+tr:last-child td { border-bottom: none; }
+
+footer { background: var(--primary-dark); color: #fff; margin-top: 80px; padding: 50px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: var(--maxw); margin: 0 auto; padding: 0 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+footer h4 { color: #fff; margin-bottom: 15px; font-size: 1.1rem; }
+footer ul { list-style: none; }
+footer li { margin-bottom: 10px; }
+footer a { color: rgba(255,255,255,0.8); transition: var(--trans); }
+footer a:hover { color: var(--accent); }
+.footer-bottom { text-align: center; padding: 20px; font-size: 0.9rem; opacity: 0.8; }
+
+.home-hero { background: linear-gradient(135deg, var(--primary) 0%, #2d5a8c 50%, var(--accent) 100%); background-size: 400% 400%; animation: gradient-shift 15s ease infinite; color: #fff; padding: 120px 0 80px; position: relative; overflow: hidden; }
+.home-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url(2.irfan.png); opacity: 0.2; }
+.home-hero .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+@media (max-width: 900px) { .home-hero .wrap { grid-template-columns: 1fr; } }
+.home-hero h1 { color: #fff; font-size: 3.5rem; margin-bottom: 20px; }
+.home-hero .subtitle { font-size: 1.15rem; opacity: 0.95; margin-bottom: 30px; }
+.home-cta { display: flex; gap: 15px; flex-wrap: wrap; }
+.feature-box { background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2); border-radius: var(--radius); padding: 30px; backdrop-filter: blur(10px); animation: slideInUp 0.8s ease 0.2s both; }
+.feature-box h3 { color: #fff; margin-bottom: 10px; }
+.feature-box p { color: rgba(255,255,255,0.9); margin-bottom: 0; }
+
+.scanner-container { background: var(--paper); border-radius: var(--radius); padding: 40px; max-width: 500px; margin: 40px auto; box-shadow: var(--shadow-lg); text-align: center; }
+.scanner-input { width: 100%; padding: 15px; border: 2px solid var(--border); border-radius: 8px; font-size: 1.2rem; margin: 20px 0; transition: var(--trans); }
+.scanner-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,107,53,0.1); }
+.attendance-result { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; animation: slideInUp 0.5s ease; }
+.attendance-result.success { background: rgba(46, 204, 113, 0.1); color: var(--success); border: 2px solid var(--success); }
+.attendance-result.error { background: rgba(231, 76, 60, 0.1); color: var(--danger); border: 2px solid var(--danger); }
+
+.auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); position: relative; overflow: hidden; }
+.auth-container::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%; }
+.auth-form { background: var(--paper); border-radius: var(--radius); padding: 50px 40px; max-width: 420px; width: 100%; box-shadow: var(--shadow-lg); position: relative; z-index: 2; animation: slideInUp 0.8s ease; }
+.auth-form h1 { text-align: center; margin-bottom: 30px; }
+.auth-form .toggle-link { text-align: center; margin-top: 20px; font-size: 0.95rem; }
+.auth-form .toggle-link a { color: var(--accent); font-weight: 600; }
+
+.section { padding: 60px 0; animation: fadeIn 0.8s ease; }
+.section h2 { margin-bottom: 40px; text-align: center; }
+.section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 30px; font-size: 1.05rem; }
+
+.badge { display: inline-block; padding: 6px 12px; background: var(--accent); color: #fff; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+.divider { border: none; border-top: 2px dashed var(--border); margin: 40px 0; }
+
+@media (max-width: 768px) {
+  .site-header { padding: 10px 0; }
+  .brand { font-size: 1.1rem; }
+  .brand-logo { width: 40px; height: 40px; font-size: 1.4rem; }
+  .page-hero { padding: 50px 0; }
+  .page-hero h1 { font-size: 2rem; }
+  .home-hero { padding: 60px 0 50px; }
+  .home-hero h1 { font-size: 2.2rem; }
+  .nav-tabs { gap: 0; }
+  .nav-tab > a, .nav-tab > button { padding: 10px 12px; font-size: 0.8rem; }
+  .section { padding: 40px 0; }
+  .container { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 +92 300 1234567 | ✉ info@iqramodelschool.edu.pk</span>
+    <span>Welcome to Pakistan Iqra Model School</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="brand-row">
+    <div class="brand">
+      <div class="brand-logo">📚</div>
+      <div class="brand-text">
+        <span class="school-name">Pakistan Iqra Model School</span>
+        <span class="tagline">Excellence in Education</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="dark-toggle">🌙</button>
+      <a href="signin.html" class="btn-signin">Sign In</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav-tabs"><li class="nav-tab active"><a href="index.html">Home</a></li><li class="nav-tab has-drop"><button type="button">About ▼</button><ul class="dropdown"><li><a href="about.html" class="">About Us</a></li><li><a href="vision-mission.html" class="">Vision & Mission</a></li><li><a href="principal-message.html" class="">Principal's Message</a></li><li><a href="alumni.html" class="">Alumni</a></li></ul></li><li class="nav-tab has-drop"><button type="button">Academics ▼</button><ul class="dropdown"><li><a href="academics.html" class="">Curriculum</a></li><li><a href="faculty.html" class="">Faculty</a></li><li><a href="departments.html" class="">Departments</a></li><li><a href="calendar.html" class="">Calendar</a></li><li><a href="results.html" class="">Results</a></li></ul></li><li class="nav-tab has-drop"><button type="button">Campus ▼</button><ul class="dropdown"><li><a href="gallery.html" class="">Gallery</a></li><li><a href="events.html" class="">Events</a></li><li><a href="sports.html" class="">Sports</a></li><li><a href="achievements.html" class="">Achievements</a></li><li><a href="extracurricular.html" class="">Extracurricular</a></li><li><a href="facilities.html" class="">Facilities</a></li></ul></li><li class="nav-tab"><a href="admissions.html">Admissions</a></li><li class="nav-tab"><a href="attendance.html">Attendance</a></li><li class="nav-tab"><a href="contact.html">Contact</a></li><li class="nav-tab has-drop"><button type="button">Info ▼</button><ul class="dropdown"><li><a href="faq.html" class="">FAQ</a></li><li><a href="rules-policy.html" class="">Rules & Policies</a></li></ul></li></ul>
+  </nav>
+</header>
+
+
+<section class="home-hero">
+  <div class="wrap">
+    <div>
+      <h1>Welcome to Excellence</h1>
+      <p class="subtitle">Pakistan's premier institution for holistic education</p>
+      <p>Combining traditional values with modern education, we nurture tomorrow's leaders.</p>
+      <div class="home-cta">
+        <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+        <a href="about.html" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div>
+      <div class="feature-box"><h3>🎓 Excellence</h3><p>Award-winning curriculum & experienced faculty</p></div>
+      <div class="feature-box"><h3>🏆 Achievements</h3><p>Top-ranked school in the region</p></div>
+      <div class="feature-box"><h3>🌟 Growth</h3><p>Focus on character & skill development</p></div>
+    </div>
+  </div>
+</section>
+
+<main><div class="container"><div class="wrap">
+<div class="container">
+  <div class="wrap">
+    <section class="section">
+      <h2>Why Choose Us?</h2>
+      <div class="grid grid-4">
+        <div class="card"><div class="card-icon">👨‍🎓</div><h3>Expert Faculty</h3><p>Highly qualified & experienced teachers</p></div>
+        <div class="card"><div class="card-icon">🏫</div><h3>Modern Facilities</h3><p>Labs, library & sports complex</p></div>
+        <div class="card"><div class="card-icon">📚</div><h3>Quality Education</h3><p>Comprehensive curriculum</p></div>
+        <div class="card"><div class="card-icon">🌍</div><h3>Global Exposure</h3><p>International standards</p></div>
+      </div>
+    </section>
+  </div>
+</div>
+</div></div></main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Pakistan Iqra Model School</h4>
+      <p>Providing quality education with modern facilities and experienced faculty.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="academics.html">Academics</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Campus</h4>
+      <ul>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="sports.html">Sports</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>More</h4>
+      <ul>
+        <li><a href="attendance.html">Attendance</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="alumni.html">Alumni</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Pakistan Iqra Model School. All rights reserved.</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const darkToggle = document.querySelector('.dark-toggle');
+  const body = document.body;
+  
+  if (darkToggle) {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) body.classList.add('dark-mode');
+    
+    darkToggle.addEventListener('click', function() {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+      darkToggle.innerHTML = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+    
+    darkToggle.innerHTML = isDarkMode ? '☀️' : '🌙';
+  }
+  
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    const btn = tab.querySelector('button');
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tab.classList.toggle('open');
+      });
+    }
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-tab')) {
+      document.querySelectorAll('.nav-tab.open').forEach(tab => {
+        tab.classList.remove('open');
+      });
+    }
+  });
+  
+  const scannerInput = document.querySelector('.scanner-input');
+  if (scannerInput) {
+    scannerInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const rollNo = this.value.trim();
+        const resultDiv = document.querySelector('.attendance-result');
+        
+        if (rollNo && rollNo.length > 0) {
+          resultDiv.style.display = 'block';
+          resultDiv.classList.remove('error');
+          resultDiv.classList.add('success');
+          resultDiv.innerHTML = `<strong>✓ Attendance Marked</strong><br>Roll No: ${rollNo}<br>Time: ${new Date().toLocaleTimeString()}`;
+          this.value = '';
+        }
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
